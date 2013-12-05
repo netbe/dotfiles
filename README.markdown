@@ -1,4 +1,4 @@
-# holman does dotfiles
+# @netbe's dotfiles
 
 ## dotfiles
 
