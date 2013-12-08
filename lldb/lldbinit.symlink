@@ -4,3 +4,4 @@ command alias reveal_load expr (void*)dlopen("/Applications/Reveal.app/Contents/
 command alias reveal_load_dev expr (void*)dlopen([(NSString*)[(NSBundle*)[NSBundle mainBundle] pathForResource:@"libReveal" ofType:@"dylib"] cStringUsingEncoding:0x4], 0x2);
 command alias reveal_start expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStart" object:nil];
 command alias reveal_stop expr [(NSNotificationCenter*)[NSNotificationCenter defaultCenter] postNotificationName:@"IBARevealRequestStop" object:nil];
+command script import ~/.dotfiles/lldb/thread_return.py
