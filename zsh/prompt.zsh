@@ -13,17 +13,33 @@ git_branch() {
   echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
 }
 
+git_detach() {
+  commit=$($git status 2>/dev/null | head -n1 | grep detached | cut -d' ' -f5)
+  if [[ $commit == "" ]]
+  then
+    echo ""
+  else
+    echo "commit $commit"
+  fi
+}
+
 git_dirty() {
   st=$($git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
   then
     echo ""
   else
+    # let's find info in any case
+    prompt_info="$(git_prompt_info)"
+    if [[ $prompt_info == "" ]]; then
+      prompt_info="$(git_detach)"
+    fi
+
     if [[ "$st" =~ ^nothing ]]
     then
-      echo "on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg_bold[green]%}$prompt_info%{$reset_color%}"
     else
-      echo "on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo "on %{$fg_bold[red]%}$prompt_info%{$reset_color%}"
     fi
   fi
 }
