@@ -24,7 +24,7 @@ git_detach() {
 }
 
 git_dirty() {
-  st=$($git status 2>/dev/null | tail -n 1)
+  st=$($git status 2>/dev/null | head -n 1)
   if [[ $st == "" ]]
   then
     echo ""
