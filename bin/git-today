@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Show my commits done today
+# Inspired by https://coderwall.com/p/euwpig and https://coderwall.com/p/bcthew
+
+git log --author=`git config --get user.email` --since='1 day ago' --until='now' --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
