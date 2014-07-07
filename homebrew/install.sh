@@ -14,5 +14,10 @@ fi
 
 # Install homebrew packages
 brew install grc coreutils spark
-
+# Others
+brew install gibo # A shell script for easily accessing gitignore boilerplates
+brew install ghi # GitHub Issues on the command line. Use your $EDITOR, not your browser.
+brew install xctool # command to build xcode project
+brew install tig # git overview
+brew install wget
 exit 0
