@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+#
+# server
+#
+# Runs a http server in current directory
+# i.e: python -m SimpleHTTPServer
+
+import webbrowser
+try:
+    import SimpleHTTPServer
+    import thread
+    import urllib
+except:
+    import http.server as SimpleHTTPServer
+    import _thread as thread
+    import urllib.request as urllib
+
+# launch default web browser
+# after one shot timer to wait for warming up HTTP daemon.
+
+def launch():
+    webbrowser.open("http://localhost:8000/")
+
+thread.start_new_thread(launch, ())
+
+# start mini HTTP daemon.
+SimpleHTTPServer.test(HandlerClass=SimpleHTTPServer.SimpleHTTPRequestHandler)
