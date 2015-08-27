@@ -12,12 +12,16 @@ then
   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)" > /tmp/homebrew-install.log
 fi
 
+# brew sources
+brew tap thoughtbot/formulae
 # Install homebrew packages
 brew install grc coreutils spark
 # Others
-brew install gibo # A shell script for easily accessing gitignore boilerplates
 brew install ghi # GitHub Issues on the command line. Use your $EDITOR, not your browser.
 brew install xctool # command to build xcode project
 brew install tig # git overview
 brew install wget
+brew install ios-sim # manage simulator from console
+brew install rbenv # ruby manager
+brew install liftoff # ios project templates
 exit 0
