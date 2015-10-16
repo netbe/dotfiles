@@ -94,3 +94,10 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean YES
+
+###############################################################################
+# Xcode                                                                       #
+###############################################################################
+
+# Show build speed
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
