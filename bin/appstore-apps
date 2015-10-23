@@ -1,0 +1,5 @@
+#!/bin/sh
+# List All Apps Downloaded from App Store
+# Source https://github.com/herrbischoff/awesome-osx-command-line
+
+find /Applications -path '*Contents/_MASReceipt/receipt' -maxdepth 4 -print |\sed 's#.app/Contents/_MASReceipt/receipt#.app#g; s#/Applications/##'
