@@ -84,11 +84,28 @@ rb_prompt() {
   fi
 }
 
+swift_version() {
+  if (( $+commands[swiftenv] ))
+  then
+    echo "$(swiftenv version | awk '{print $1}')"
+  fi
+}
+
+swift_prompt() {
+  if ! [[ -z "$(swift_version)" ]]
+  then
+    echo "%{$fg_bold[blue]%}$(swift_version)%{$reset_color%} "
+  else
+    echo ""
+  fi
+}
+
+
 directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(rb_prompt)- $(swift_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(date +"%T")%{$reset_color%}"
 }
