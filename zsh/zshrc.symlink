@@ -38,4 +38,7 @@ do
 done
 
 unset config_files
+
+# added by travis gem
+[ -f /Users/netbe/.travis/travis.sh ] && source /Users/netbe/.travis/travis.sh
 function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}

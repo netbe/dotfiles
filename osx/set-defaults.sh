@@ -7,6 +7,9 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+# Set default format of capture (Grab) to png
+defaults write com.apple.screencapture type jpg
+
 # Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool true
 
@@ -40,6 +43,9 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
+# Enable Chime when Charging Play iOS charging sound when MagSafe is connected.
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true && \
+open /System/Library/CoreServices/PowerChime.app
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
@@ -79,6 +85,9 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Add iOS Simulator to Launchpad
 sudo ln -sf /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications/iOS\ Simulator.app
+
+# Show Path Bar
+defaults write com.apple.finder ShowPathbar -bool true
 
 
 ###############################################################################

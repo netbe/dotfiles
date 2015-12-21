@@ -24,4 +24,5 @@ brew install wget
 brew install ios-sim # manage simulator from console
 brew install rbenv # ruby manager
 brew install liftoff # ios project templates
+brew install kylef/formulae/swiftenv # swift version manager
 exit 0

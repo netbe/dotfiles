@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Remove All Unavailable Simulators
+xcrun simctl delete unavailable
