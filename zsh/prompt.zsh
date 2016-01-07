@@ -78,7 +78,7 @@ ruby_version() {
 rb_prompt() {
   if ! [[ -z "$(ruby_version)" ]]
   then
-    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
+    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%}"
   else
     echo ""
   fi
@@ -94,7 +94,23 @@ swift_version() {
 swift_prompt() {
   if ! [[ -z "$(swift_version)" ]]
   then
-    echo "%{$fg_bold[blue]%}$(swift_version)%{$reset_color%} "
+    echo "%{$fg_bold[blue]%}$(swift_version)%{$reset_color%}"
+  else
+    echo ""
+  fi
+}
+
+docker_version() {
+  if (( $+commands[docker-machine] ))
+  then
+    echo "$(docker-machine ls | grep '*' | awk '{print $1}')"
+  fi
+}
+
+docker_prompt() {
+  if ! [[ -z "$(docker_version)" ]]
+  then
+    echo "%{$fg_bold[green]%}[$(docker_version)]%{$reset_color%}"
   else
     echo ""
   fi
@@ -105,7 +121,7 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)- $(swift_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(docker_prompt) $(rb_prompt) - $(swift_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(date +"%T")%{$reset_color%}"
 }
