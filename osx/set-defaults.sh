@@ -7,6 +7,10 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+# Keyboard speed
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 2
+
 # Set default format of capture (Grab) to png
 defaults write com.apple.screencapture type jpg
 
