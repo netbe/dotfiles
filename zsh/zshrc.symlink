@@ -49,3 +49,5 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 BUNDLED_COMMANDS="$BUNDLED_COMMANDS rails"
 export $(cat ~/.env | xargs)
 [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

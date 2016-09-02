@@ -84,6 +84,22 @@ rb_prompt() {
   fi
 }
 
+xcode_version() {
+  if (( $+commands[xcenv] ))
+  then
+    echo "$(xcenv version | awk '{print $1}')"
+  fi
+}
+
+xcode_prompt() {
+  if ! [[ -z "$(xcode_version)" ]]
+  then
+    echo "%{$fg_bold[red]%}$(xcode_version)%{$reset_color%}"
+  else
+    echo ""
+  fi
+}
+
 swift_version() {
   if (( $+commands[swiftenv] ))
   then
@@ -121,7 +137,7 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) - $(swift_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n$(rb_prompt) - $(xcode_prompt) - $(swift_prompt) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}$(date +"%T")%{$reset_color%}"
 }
