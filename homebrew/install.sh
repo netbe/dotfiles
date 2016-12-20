@@ -25,4 +25,5 @@ brew install ios-sim # manage simulator from console
 brew install rbenv # ruby manager
 brew install liftoff # ios project templates
 brew install kylef/formulae/swiftenv # swift version manager
+brew install carthage # dependency manager
 exit 0
