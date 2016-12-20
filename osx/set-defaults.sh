@@ -114,6 +114,7 @@ defaults write com.apple.dashboard mcx-disabled -boolean YES
 
 # Show build speed
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
+defaults write com.apple.dt.Xcode ExplainWhyBuildCommandsAreRun -bool true
 
 ###############################################################################
 # TextEdit                                                                    #
