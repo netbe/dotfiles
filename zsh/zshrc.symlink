@@ -47,7 +47,7 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 # auto bundle exec
 BUNDLED_COMMANDS="$BUNDLED_COMMANDS rails"
-export $(cat ~/.env | xargs)
+# export $(cat ~/.env | xargs)
 [ -f ~/.bundler-exec.sh ] && source ~/.bundler-exec.sh
 
 export PATH="$HOME/.fastlane/bin:$PATH"
