@@ -17,14 +17,12 @@ brew tap thoughtbot/formulae
 # Install homebrew packages
 brew install grc coreutils spark
 # Others
-brew install ghi # GitHub Issues on the command line. Use your $EDITOR, not your browser.
-brew install xctool # command to build xcode project
 brew install tig # git overview
 brew install wget
-brew install ios-sim # manage simulator from console
 brew install rbenv # ruby manager
-brew install liftoff # ios project templates
 brew install kylef/formulae/swiftenv # swift version manager
-brew install xcenv/xcenv # Xcode env
+brew install xcenv
+brew install gibo # A shell script for easily accessing gitignore boilerplates
+brew install ghi # GitHub Issues on the command line. Use your $EDITOR, not your browser.
 
 exit 0
